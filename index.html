@@ -78,61 +78,57 @@
 							"\t</thead>"
 						].join("\n");
 
-						for(var count = 0; count<patient_data.length; count++)
-						{
-							const cell_data = patient_data[count].split(",");
+			for(var count = 0; count<patient_data.length; count++)
+			{
+			const cell_data = patient_data[count].split(",");
 
-							const col_1 = (cell_data[0]) ? cell_data[0] : '';
-							let col_2 = (cell_data[1]) ? cell_data[1] : '';
-							const col_3 = (cell_data[2]) ? cell_data[2] : '';
-							const col_4 = (cell_data[3]) ? cell_data[3] : '';
-							const col_5 = (cell_data[4]) ? cell_data[4] : '';
-							const col_6 = (cell_data[5]) ? cell_data[5] : '';
-							const col_7 = (cell_data[6]) ? cell_data[6] : '';
-							const col_8 = (cell_data[7]) ? cell_data[7] : '';
-							const col_9 = (cell_data[8]) ? cell_data[8] : '';
+			const col_1 = (cell_data[0]) ? cell_data[0] : '';
+			let col_2 = (cell_data[1]) ? cell_data[1] : '';
+			const col_3 = (cell_data[2]) ? cell_data[2] : '';
+			const col_4 = (cell_data[3]) ? cell_data[3] : '';
+			const col_5 = (cell_data[4]) ? cell_data[4] : '';
+			const col_6 = (cell_data[5]) ? cell_data[5] : '';
+			const col_7 = (cell_data[6]) ? cell_data[6] : '';
+			const col_8 = (cell_data[7]) ? cell_data[7] : '';
+			const col_9 = (cell_data[8]) ? cell_data[8] : '';
 						
+if ((col_1.length > 0) || (col_2.length > 0) || (col_3.length > 0) || (col_4.length > 0) || (col_5.length > 0) || (col_6.length > 0) || (col_7.length > 0) || (col_8.length > 0) || (col_9.length > 0)) {
 
-							
+	const row = [
+		"\t<tr>",
+		"\t\t<td>" + col_1 + "</td>",
+		"\t\t<td>" + col_2 + "</td>",
+		"\t\t<td>" + col_3 + "</td>",
+		"\t\t<td>" + col_4 + "</td>",
+		"\t\t<td>" + col_5 + "</td>",
+		"\t\t<td>" + col_6 + "</td>",
+		"\t\t<td>" + col_7 + "</td>",
+		"\t\t<td>" + col_8 + "</td>",
+		"\t\t<td>" + col_9 + "</td>",
+		"\t</tr>",
+		].join("\n");
 
-							if ((col_1.length > 0) || (col_2.length > 0) || (col_3.length > 0) || (col_4.length > 0) || (col_5.length > 0) || (col_6.length > 0) || (col_7.length > 0) || (col_8.length > 0) || (col_9.length > 0)) {
+	table_data += row;
+	}
+		}
+			table_data += '</table>';
+			$('#patient_table').html(table_data);
+		}
+	});
 
-								const row = [
-									"\t<tr>",
-										"\t\t<td>" + col_1 + "</td>",
-										"\t\t<td>" + col_2 + "</td>",
-										"\t\t<td>" + col_3 + "</td>",
-										"\t\t<td>" + col_4 + "</td>",
-										"\t\t<td>" + col_5 + "</td>",
-										"\t\t<td>" + col_6 + "</td>",
-										"\t\t<td>" + col_7 + "</td>",
-										"\t\t<td>" + col_8 + "</td>",
-										"\t\t<td>" + col_9 + "</td>",
-										
-									"\t</tr>",
-								].join("\n");
+}
 
-								table_data += row;
-							}
-
-						}
-						table_data += '</table>';
-						$('#patient_table').html(table_data);
-					}
-				});
-			}
-
-			$(document).ready(
-				function () {
-
-					updateTable();
+$(document).ready(
+		function () {
+		updateTable();
 //Table set to update from CSV every 30 seconds
-					window.setInterval(
-						updateTable,
-						60000
-					);
-				}
-			);
+		window.setInterval(
+		updateTable,
+		60000
+		);
+	}
+);
+
 		</script>
 	</body>
 </html>
