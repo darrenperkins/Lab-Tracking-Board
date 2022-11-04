@@ -1,0 +1,78 @@
+body {
+
+	font-family:'Montserrat', sans-serif;
+	font-size: 36px;
+/*	background-image: url("light_wool.png"); */
+	transform: scale(0.9);
+
+}
+
+#top {
+	width:100%;
+	background-color:#1c0848;
+	height:10px;
+	margin: 0 0;
+}
+
+#tt {
+  font-size:20px;
+  font-family: 'Montserrat', serif;
+
+}
+
+body {
+
+	font-family:'Montserrat', sans-serif;
+	font-size: 20px;
+/*	background-image: url("light_wool.png"); */
+}
+
+.table-striped>tbody>tr:nth-of-type(even) {
+	background-color:#dfdfdf;
+}
+
+thead {
+	background-color:#1c0848;
+	color:#fff;
+}
+
+.table-responsive {
+	font-family:'Montserrat', serif;
+}
+
+thead {
+	border-color: #ddd;
+}
+
+.table-bordered {
+	border: 2px solid #000;
+	font-size: 16px;
+}
+
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+	border: 1px solid #53514c;
+}
+
+
+.table-bordered>tbody>tr>td:nth-child(6)
+{
+	white-space: nowrap;
+}
+
+p {
+	text-align:center;
+	font-size: 15px;
+}
+
+#patient_table {
+	border-color:#000;
+}
+
+#patient_table th {
+	text-align:center;
+	font-weight:normal;
+}
+
+#patient_table  {
+	text-align:center;
+}
