@@ -1,0 +1,1 @@
+The Lab Tracking Board reads in a CSV file, called labtrack.csv, and puts it into a responsive table. Reading the labtrack.csv, it updates the page every 60 seconds. Great for hospitals that want to query a database and put patient information on a self-updating webpage.
