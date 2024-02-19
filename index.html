@@ -1,78 +1,62 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Lab Tracking Board</title>
-		<meta name="author" content="Darren Perkins">
-		<meta charset="utf-8">
-		<html lang="en-US">
-
-		<!--Load jQuery from Microsoft CDN -->
-		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.js"></script>
-		<!-- Load Bootstrap Template from CDN -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-		<!--Import Stylesheets. Bootstrap stylesheet changed. Custom Style Sheet. Import Google Font. -->
-		<style>
+<head>
+<title>Lab Tracking Board</title>
+<meta name="author" content="Darren Perkins">
+<meta charset="utf-8">
+<html lang="en-US">
+<!--Load jQuery from Microsoft CDN -->
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.js"></script>
+<!-- Load Bootstrap Template from CDN -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--Import Stylesheets. Bootstrap stylesheet changed. Custom Style Sheet. Import Google Font. -->
+<style>
 			@import url('bootstrap.min.css');
 			@import url('custom2.css');
 			@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
 			@import url('https://fonts.googleapis.com/css2?family=Montserrat.wght@300&display=swap');
 			@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Montserrat:wght@300&display=swap');
-		</style>
-
-	</head>
-
-	<!-- Top Bar -->
-
-
-		<div class="container">
-
-
-			<div class="table-responsive">
-<!-- <h1 align="center">Lab Tracking Board</h1>
+</style>
+</head>
+<!-- Top Bar -->
+<div class="container">
+	<div class="table-responsive">
+		<!-- <h1 align="center">Lab Tracking Board</h1>
 				<br /> -->
-
-				
-	<!--Begin Patient Table-->
-	<div id="patient_table">
-
-				</div>
-
-			</div>
-
+		<!--Begin Patient Table-->
+		<div id="patient_table">
 		</div>
+	</div>
+</div>
 
-		<script>
-			function updateTable () {
-				$.ajax({
-					url: "labtrack.csv",
-					dataType:"text",
-					success: function(data)
-					{
-						var patient_data = data.split(/\r?\n|\r/);
-
-						var table_data = [
-							'<table class="table table-bordered table-striped">',
-							"\t<thead>",
-								"\t<tr>",
-									"\t\t<th>Account Number</th>",
-									"\t\t<th>Patient Name</th>",
-									"\t\t<th>Priority</th>",
-									"\t\t<th>Status</th>",
-									"\t\t<th>Room</th>",
-									"\t\t<th>Draw Date</th>",
-									"\t\t<th>Draw Time</th>",
-									"\t\t<th>Description</th>",
-									"\t\t<th>Provider</th>",
-								"\r</tr>",
-							"\t</thead>"
-						].join("\n");
-
+<script>
+function updateTable () {
+$.ajax({
+url: "labtrack.csv",
+dataType:"text",
+success: function(data)
+			{
+			var patient_data = data.split(/\r?\n|\r/);
+			var table_data = [
+			'<table class="table table-bordered table-striped">',
+			"\t<thead>",
+			"\t<tr>",
+			"\t\t<th>Account Number</th>",
+			"\t\t<th>Patient Name</th>",
+			"\t\t<th>Priority</th>",
+			"\t\t<th>Status</th>",
+			"\t\t<th>Room</th>",
+			"\t\t<th>Draw Date</th>",
+			"\t\t<th>Draw Time</th>",
+			"\t\t<th>Description</th>",
+			"\t\t<th>Provider</th>",
+			"\r</tr>",
+			"\t</thead>"
+			].join("\n");
+				
 			for(var count = 0; count<patient_data.length; count++)
 			{
 			const cell_data = patient_data[count].split(",");
-
 			const col_1 = (cell_data[0]) ? cell_data[0] : '';
 			let col_2 = (cell_data[1]) ? cell_data[1] : '';
 			const col_3 = (cell_data[2]) ? cell_data[2] : '';
@@ -82,9 +66,7 @@
 			const col_7 = (cell_data[6]) ? cell_data[6] : '';
 			const col_8 = (cell_data[7]) ? cell_data[7] : '';
 			const col_9 = (cell_data[8]) ? cell_data[8] : '';
-						
 if ((col_1.length > 0) || (col_2.length > 0) || (col_3.length > 0) || (col_4.length > 0) || (col_5.length > 0) || (col_6.length > 0) || (col_7.length > 0) || (col_8.length > 0) || (col_9.length > 0)) {
-
 	const row = [
 		"\t<tr>",
 		"\t\t<td>" + col_1 + "</td>",
@@ -98,7 +80,6 @@ if ((col_1.length > 0) || (col_2.length > 0) || (col_3.length > 0) || (col_4.len
 		"\t\t<td>" + col_9 + "</td>",
 		"\t</tr>",
 		].join("\n");
-
 	table_data += row;
 	}
 		}
@@ -106,9 +87,7 @@ if ((col_1.length > 0) || (col_2.length > 0) || (col_3.length > 0) || (col_4.len
 			$('#patient_table').html(table_data);
 		}
 	});
-
 }
-
 $(document).ready(
 		function () {
 		updateTable();
@@ -119,7 +98,6 @@ $(document).ready(
 		);
 	}
 );
-
 		</script>
-	</body>
+</body>
 </html>
